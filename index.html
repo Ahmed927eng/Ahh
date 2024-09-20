@@ -1,0 +1,98 @@
+```html
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع ملفات ريفيت</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ابحث عن ملفات ريفيت</h1>
+        <form id="searchForm">
+            <label for="projectType">نوع المشروع:</label>
+            <input type="text" id="projectType" required>
+
+            <label for="numFloors">عدد الطوابق:</label>
+            <input type="number" id="numFloors" required>
+
+            <label for="style">نمط التصميم:</label>
+            <input type="text" id="style" required>
+
+            <button type="submit">بحث</button>
+        </form>
+
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const projectType = document.getElementById('projectType').value;
+            const numFloors = document.getElementById('numFloors').value;
+            const style = document.getElementById('style').value;
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<h2>نتائج البحث:</h2>
+                                    <p>نوع المشروع: ${projectType}</p>
+                                    <p>عدد الطوابق: ${numFloors}</p>
+                                    <p>نمط التصميم: ${style}</p>
+                                    <p>لا توجد ملفات ريفيت متاحة بناءً على هذه المواصفات.</p>`;
+        });
+    </script>
+</body>
+</html>
